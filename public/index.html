@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pakli szerkesztő</title>
+
+    <script src="https://use.fontawesome.com/c8df64b8d1.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/base.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Pakli szerkesztő</h1>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim vestibulum justo, a malesuada arcu
+                faucibus at. Aliquam euismod elementum euismod.</p>
+        </div>
+
+        <ul id="mainNav" class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="/">Főoldal</a></li>
+            <li role="presentation"><a href="/template/deck_edit.html">Új pakli</a></li>
+            <li role="presentation"><a href="/template/cards.html">Kártyák</a></li>
+        </ul>
+
+        <div id="deckList">
+            <div class="row">
+                <div class="col-xs-2 deck-name">Aggro</div>
+                <div class="col-xs-1 class-name"><em>Shaman</em></div>
+                <div class="col-xs-1 card-count">12/30</div>
+                <div class="col-xs-2 date">1992. 03. 07. - 20: 00</div>
+                <div class="col-xs-2 col-xs-offset-2 text-center">
+                    <a class="btn btn-default" href="/template/deck_edit.html">Módosítás</a>
+                </div>
+                <div class="col-xs-2 text-center">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteDeckModal">Törlés</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-2 deck-name">Pirate</div>
+                <div class="col-xs-1 class-name"><em>Warrior</em></div>
+                <div class="col-xs-1 card-count">0/30</div>
+                <div class="col-xs-2 date">1989. 09. 14. - 9: 00</div>
+                <div class="col-xs-2 col-xs-offset-2 text-center">
+                    <a class="btn btn-default" href="/template/deck_edit.html">Módosítás</a>
+                </div>
+                <div class="col-xs-2 text-center">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteDeckModal">Törlés</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-2 deck-name">Dragon</div>
+                <div class="col-xs-1 class-name"><em>Priest</em></div>
+                <div class="col-xs-1 card-count">30/30</div>
+                <div class="col-xs-2 date">2016. 12. 16. - 18: 00</div>
+                <div class="col-xs-2 col-xs-offset-2 text-center">
+                    <a class="btn btn-default" href="/template/deck_edit.html">Módosítás</a>
+                </div>
+                <div class="col-xs-2 text-center">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteDeckModal">Törlés</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="text-muted">Tamás Perlaki, BME, 2017</p>
+        </div>
+    </footer>
+
+    <div id="deleteDeckModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <form action="">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Pakli törlése</h4>
+                    </div>
+                    <div class="modal-body">
+                        Biztos törli a paklit?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Törlés</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

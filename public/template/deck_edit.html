@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pakli szerkesztő</title>
+
+    <script src="https://use.fontawesome.com/c8df64b8d1.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/base.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Pakli szerkesztés</h1>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim vestibulum justo, a malesuada arcu
+                faucibus at. Aliquam euismod elementum euismod.</p>
+        </div>
+
+        <ul id="mainNav" class="nav nav-tabs">
+            <li role="presentation"><a href="/">Főoldal</a></li>
+            <li role="presentation" class="active"><a href="/template/deck_edit.html">Új pakli</a></li>
+            <li role="presentation"><a href="/template/cards.html">Kártyák</a></li>
+        </ul>
+
+        <form id="deckEdit">
+            <div class="row">
+                <div class="form-group col-xs-5">
+                    <label for="name">Név</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Név">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-5">
+                    <label for="class">Kaszt</label>
+                    <select class="form-control" id="class" name="class">
+                        <option>Warrior</option>
+                        <option>Shaman</option>
+                        <option>Rogue</option>
+                        <option>Paladin</option>
+                        <option>Hunter</option>
+                        <option>Druid</option>
+                        <option>Warlock</option>
+                        <option>Mage</option>
+                        <option>Priest</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-5">
+                    <label for="added_cards">Hozzáadott kártyák</label>
+                    <select class="form-control" id="added_cards" name="added_cards" size="7" multiple>
+                        <option>Azure Drake</option>
+                        <option>Ragnaros</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-1 text-center arrows">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-arrow-left fa-stack-1x"></i>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-arrow-right fa-stack-1x"></i>
+                    </span>
+                </div>
+
+                <div class="form-group col-xs-5">
+                    <label for="available_cards">Kártyák</label>
+                    <select class="form-control" id="available_cards" name="available_cards" size="7" multiple>
+                        <option>Wisp</option>
+                        <option>Elven Archer</option>
+                        <option>Fireball</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="buttonContainer" class="row">
+                <div class="col-xs-1">
+                    <button type="submit" class="btn btn-primary">Mentés</button>
+                </div>
+                <div class="col-xs-1 col-xs-offset-1">
+                    <a type="button" class="btn btn-default" href="/">Mégse</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="text-muted">Tamás Perlaki, BME, 2017</p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
