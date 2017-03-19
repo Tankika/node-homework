@@ -25,11 +25,11 @@
 
         <ul id="mainNav" class="nav nav-tabs">
             <li role="presentation"><a href="/">Főoldal</a></li>
-            <li role="presentation" class="active"><a href="/template/deck_edit.html">Új pakli</a></li>
-            <li role="presentation"><a href="/template/cards.html">Kártyák</a></li>
+            <li role="presentation" class="active"><a href="/deck/create">Új pakli</a></li>
+            <li role="presentation"><a href="/card">Kártyák</a></li>
         </ul>
 
-        <form id="deckEdit">
+        <form id="deckEdit" action="/deck" method="POST">
             <div class="row">
                 <div class="form-group col-xs-5">
                     <label for="name">Név</label>

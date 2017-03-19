@@ -25,8 +25,8 @@
 
         <ul id="mainNav" class="nav nav-tabs">
             <li role="presentation"><a href="/">Főoldal</a></li>
-            <li role="presentation"><a href="/template/deck_edit.html">Új pakli</a></li>
-            <li role="presentation" class="active"><a href="/template/cards.html">Kártyák</a></li>
+            <li role="presentation"><a href="/deck/create">Új pakli</a></li>
+            <li role="presentation" class="active"><a href="/card">Kártyák</a></li>
         </ul>
 
         <div id="cards">
@@ -48,7 +48,7 @@
                         <td class="text-center">4</td>
                         <td class="text-center">4</td>
                         <td class="text-center">
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCardModal">Törlés</button>
+                            <button class="btn btn-danger" onclick="onDeleteButtonClick(2)">Törlés</button>
                         </td>
                     </tr>
                     <tr>
@@ -57,7 +57,7 @@
                         <td class="text-center">8</td>
                         <td class="text-center">8</td>
                         <td class="text-center">
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCardModal">Törlés</button>
+                            <button class="btn btn-danger" onclick="onDeleteButtonClick(3)">Törlés</button>
                         </td>
                     </tr>
                     <tr>
@@ -66,7 +66,7 @@
                         <td class="text-center">1</td>
                         <td class="text-center">1</td>
                         <td class="text-center">
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCardModal">Törlés</button>
+                            <button class="btn btn-danger" onclick="onDeleteButtonClick(4)">Törlés</button>
                         </td>
                     </tr>
                     <tr>
@@ -75,7 +75,7 @@
                         <td class="text-center">1</td>
                         <td class="text-center">1</td>
                         <td class="text-center">
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCardModal">Törlés</button>
+                            <button class="btn btn-danger" onclick="onDeleteButtonClick(5)">Törlés</button>
                         </td>
                     </tr>
                     <tr>
@@ -84,7 +84,7 @@
                         <td class="text-center">-</td>
                         <td class="text-center">-</td>
                         <td class="text-center">
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCardModal">Törlés</button>
+                            <button class="btn btn-danger" onclick="onDeleteButtonClick(6)">Törlés</button>
                         </td>
                     </tr>
                 </tbody>
@@ -100,7 +100,7 @@
 
     <div id="newCardModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <form action="">
+            <form action="/card" method="POST">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -140,27 +140,27 @@
 
     <div id="deleteCardModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <form action="">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Kártya törlése</h4>
-                    </div>
-                    <div class="modal-body">
-                        Biztos törli a kártyát?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger">Törlés</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+            <input id="cardId" type="hidden" />
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Kártya törlése</h4>
                 </div>
-            </form>
+                <div class="modal-body">
+                    Biztos törli a kártyát?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="onDeleteConfirm()">Törlés</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <script src="/js/cards.js"></script>
 </body>
 
 </html>
