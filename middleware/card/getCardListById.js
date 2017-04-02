@@ -5,6 +5,8 @@
 module.exports = () => {
 
     return (req, res, next) => {
+        res.tpl.cardListById = res.tpl.cardList ? res.tpl.cardList.splice(0, 2) : [];
+
         return next();
     };
 

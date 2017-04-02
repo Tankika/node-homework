@@ -5,6 +5,7 @@ const getDeckListMW = require("../middleware/deck/getDeckList");
 const updateDeckMW = require("../middleware/deck/updateDeck");
 const deleteDeckMW = require("../middleware/deck/deleteDeck");
 
+const getCardList = require("../middleware/card/getCardList");
 const getCardListByIdMW = require("../middleware/card/getCardListById");
 
 module.exports = (app) => {
@@ -14,14 +15,22 @@ module.exports = (app) => {
         renderMW('index')
     );
 
-    app.get('/deck/create', 
-        getDeckMW(),
-        renderMW('deck_edit')
+    app.get('/deck/create',
+        (req, res, next) => {
+            res.tpl.deck = {};
+            res.tpl.cardListById = [];
+
+            return next();
+        },
+        getCardList(),
+        renderMW('deck_edit/deck_edit')
     );
 
     app.get('/deck/:deckId', 
         getDeckMW(),
-        renderMW('deck_edit')
+        getCardList(),
+        getCardListByIdMW(),
+        renderMW('deck_edit/deck_edit')
     );
 
     app.post('/deck',

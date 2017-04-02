@@ -1,0 +1,45 @@
+<%- include('common/header') -%>
+
+<div class="container">
+    <%- 
+        include('common/page_header', {
+            title: 'Pakli szerkesztő',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim vestibulum justo, a malesuada arcu faucibus at. Aliquam euismod elementum euismod.'
+        })
+    -%>
+
+    <%- 
+        include('common/menu', {
+            activeMenuItemId: "index"
+        })
+    -%>
+
+    <div id="deckList">
+        <% tpl.deckList.forEach((item, idx, array) => { %>
+            <div class="row">
+                <div class="col-xs-2 deck-name"><%= item.name %></div>
+                <div class="col-xs-1 class-name"><em><%= item.class %></em></div>
+                <div class="col-xs-1 card-count"><%= item.cardCount %>/30</div>
+                <div class="col-xs-2 date"><%= moment(item.dateOfModification).format("YYYY. MM. DD. - HH:mm") %></div>
+                <div class="col-xs-2 col-xs-offset-2 text-center">
+                    <a class="btn btn-default" href="/deck/<%= item.id %>">Módosítás</a>
+                </div>
+                <div class="col-xs-2 text-center">
+                    <button class="btn btn-danger" onclick="onDeleteButtonClick(<%= item.id %>)">Törlés</button>
+                </div>
+            </div>
+            <% if(idx !== array.length - 1) { %>
+                <hr/>        
+            <% } %>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('common/delete_item_modal', {
+        url: "deck/",
+        title: "Pakli törlése",
+        description: "Biztos törli a paklit?"
+    })
+-%>
+
+<%- include('common/footer') -%>

@@ -10,12 +10,13 @@ module.exports = (app) => {
 
     app.get('/card', 
         getCardListMW(),
-        renderMW('cards')
+        renderMW('cards/cards')
     );
 
     app.post('/card', 
         createCardMW(),
-        renderMW('cards')
+        getCardListMW(),
+        renderMW('cards/cards')
     );
 
     app.delete('/card/:cardId', 

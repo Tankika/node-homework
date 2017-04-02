@@ -1,4 +1,5 @@
-const path = require('path');
+const path = require('path'),
+    moment = require('moment');
 
 /**
  * Rendereli a megadott template-et a válaszban érkező adatok alapján
@@ -6,9 +7,10 @@ const path = require('path');
 module.exports = (viewName) => {
 
     return (req, res, next) => {
-        var filePath = path.join(__dirname, '..', '..', 'views', viewName + '.html');
-
-        return res.sendFile(filePath);
+        res.render(viewName, {
+            tpl: res.tpl,
+            moment: moment
+        });
     };
 
 };

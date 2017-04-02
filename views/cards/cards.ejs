@@ -1,0 +1,60 @@
+<%- include('../common/header') -%>
+
+<% const NEW_CARD_MODAL_ID = "newCardModal" %>
+
+<div class="container">
+    <%- 
+        include('../common/page_header', {
+            title: 'Kártyák',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim vestibulum justo, a malesuada arcu faucibus at. Aliquam euismod elementum euismod.'
+        })
+    -%>
+
+    <%- 
+        include('../common/menu', {
+            activeMenuItemId: "card"
+        })
+    -%>
+
+    <div id="cards">
+        <button id="newCard" class="btn btn-primary" data-toggle="modal" data-target="#<%= NEW_CARD_MODAL_ID %>">Új Kártya</button>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="card-name">Név</th>
+                    <th class="text-center">Mana</th>
+                    <th class="text-center">Támadás</th>
+                    <th class="text-center">Védekezés</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tpl.cardList.forEach((item) => { %>
+                    <tr>
+                        <td class="card-name"><%= item.name %></td>
+                        <td class="text-center"><%= item.mana %></td>
+                        <td class="text-center"><%= item.attack ? item.attack : '-' %></td>
+                        <td class="text-center"><%= item.defence ? item.defence : '-' %></td>
+                        <td class="text-center">
+                            <button class="btn btn-danger" onclick="onDeleteButtonClick(<%= item.id %>)">Törlés</button>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include('new_card_modal', {
+        modalId: NEW_CARD_MODAL_ID
+    })
+-%>
+
+<%- include('../common/delete_item_modal', {
+        url: "card/",
+        title: "Kártya törlése",
+        description: "Biztos törli a kártyát?"
+    })
+-%>
+
+<%- include('../common/footer') -%>

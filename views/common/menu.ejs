@@ -1,0 +1,24 @@
+<ul id="mainNav" class="nav nav-tabs">
+    <% const MENU_ITEMS = [{
+        id: "index",
+        href: "/",
+        label: "Főoldal"
+    }, {
+        id: "deck_create",
+        href: "/deck/create",
+        label: "Új pakli"
+    }, {
+        id: "card",
+        href: "/card",
+        label: "Kártyák"
+    }];
+    %>
+
+    <% MENU_ITEMS.forEach((item) => { %> 
+        <% if(item.id === activeMenuItemId) { %> 
+            <li role="presentation" class="active"><a href="<%= item.href %>"><%= item.label %></a></li>
+        <% } else { %>
+            <li role="presentation"><a href="<%= item.href %>"><%= item.label %></a></li>
+        <% } %>
+    <% }) %>
+</ul>
