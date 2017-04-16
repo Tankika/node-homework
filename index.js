@@ -1,6 +1,6 @@
 // import express from 'express';
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require('express'),
+    bodyParser = require('body-parser');
 
 const PORT = 8080;
 
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  res.status(500).send('Váraltna hiba történt!');
+  res.status(500).send('Váraltan hiba történt!');
 
   console.error(err.stack);
 });

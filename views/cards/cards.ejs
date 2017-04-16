@@ -17,6 +17,10 @@
     -%>
 
     <div id="cards">
+        <% tpl.error.forEach((item) => { %>
+            <div class="alert alert-danger" role="alert"><%= item %></div>
+        <% }); %>
+
         <button id="newCard" class="btn btn-primary" data-toggle="modal" data-target="#<%= NEW_CARD_MODAL_ID %>">Új Kártya</button>
 
         <table class="table table-striped">

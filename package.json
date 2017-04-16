@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/Tankika/node-homework#readme",
   "dependencies": {
+    "async": "^2.3.0",
     "body-parser": "^1.17.1",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "mongoose": "^4.9.4"
   }
 }
