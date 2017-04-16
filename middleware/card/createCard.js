@@ -15,17 +15,20 @@ module.exports = () => {
                 }, callback);
             },
             (result, callback) => {
+                if(result) {
+                    callback(new Error('Ezzel a névvel már szerepel kártya a rendszerben!'));
+                } else {
+                    callback(null);
+                }
+            },
+            (callback) => {
                 var card = new CardModel();
                 card.name = req.body.name;
                 card.mana = req.body.mana;
                 card.attack = req.body.attack;
                 card.defense = req.body.defense;
 
-                if(result) {
-                    callback(new Error('Ezzel a névvel már szerepel kártya a rendszerben!'));
-                } else {
-                    card.save(callback);
-                }
+                card.save(callback);
             }
         ], (error, result) => {
             if(error) {

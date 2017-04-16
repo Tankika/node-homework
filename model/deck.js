@@ -10,13 +10,17 @@ const Deck = db.model('Deck', {
         type: String,
         required: true,
     },
+    dateOfModification: {
+        type: Number,
+        required: true,
+    },
     cards: [{
         type: Schema.Types.ObjectId,
         ref: 'Card'
     }],
 });
 
-Deck.path('cards').validate((cards) => {
+Deck.schema.path('cards').validate((cards) => {
     if(30 < cards.length) {
         return false;
     } else {
