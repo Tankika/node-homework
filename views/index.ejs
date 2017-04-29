@@ -31,7 +31,7 @@
                     <a class="btn btn-default" href="/deck/<%= item.id %>">Módosítás</a>
                 </div>
                 <div class="col-xs-2 text-center">
-                    <button class="btn btn-danger" onclick="onDeleteButtonClick(<%= item.id %>)">Törlés</button>
+                    <button class="btn btn-danger" onclick="onDeleteButtonClick('<%= item.id %>')">Törlés</button>
                 </div>
             </div>
             <% if(idx !== array.length - 1) { %>

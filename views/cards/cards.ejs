@@ -42,7 +42,7 @@
                         <td class="text-center"><%= item.attack ? item.attack : '-' %></td>
                         <td class="text-center"><%= item.defence ? item.defence : '-' %></td>
                         <td class="text-center">
-                            <button class="btn btn-danger" onclick="onDeleteButtonClick(<%= item.id %>)">Törlés</button>
+                            <button class="btn btn-danger" onclick="onDeleteButtonClick('<%= item.id %>')">Törlés</button>
                         </td>
                     </tr>
                 <% }) %>

@@ -21,7 +21,6 @@ module.exports = (app) => {
 
     app.delete('/card/:cardId', 
         getCardMW(),
-        getDeckMW(),
         deleteCardMW(),
         (req, res, next) => {
             res.send(200);
