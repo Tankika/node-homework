@@ -27,12 +27,14 @@ module.exports = () => {
                 var deck = new DeckModel();
                 deck.name = req.body.name;
                 deck.class = req.body.class;
-                deck.added_cards = [];
                 deck.dateOfModification = Date.now();
 
-                req.body.added_cards.forEach(cardId => {
-                    deck.added_cards.push(mongoose.Types.ObjectId(cardId));
-                });
+                if("added_cards" in req.body) {
+                    const addedCards = Array.isArray(req.body.added_cards) ? req.body.added_cards : [req.body.added_cards];
+                    addedCards.forEach(cardId => {
+                        deck.cards.push(mongoose.Types.ObjectId(cardId));
+                    });
+                }
 
                 deck.save(callback);
             }

@@ -15,11 +15,17 @@
     -%>
 
     <div id="deckList">
+        <%- 
+            include('common/error', {
+                errors: tpl.error
+            })
+        -%>
+
         <% tpl.deckList.forEach((item, idx, array) => { %>
             <div class="row">
                 <div class="col-xs-2 deck-name"><%= item.name %></div>
                 <div class="col-xs-1 class-name"><em><%= item.class %></em></div>
-                <div class="col-xs-1 card-count"><%= item.cardCount %>/30</div>
+                <div class="col-xs-1 card-count"><%= item.cards.length %> / 30</div>
                 <div class="col-xs-2 date"><%= moment(item.dateOfModification).format("YYYY. MM. DD. - HH:mm") %></div>
                 <div class="col-xs-2 col-xs-offset-2 text-center">
                     <a class="btn btn-default" href="/deck/<%= item.id %>">Módosítás</a>
@@ -32,6 +38,10 @@
                 <hr/>        
             <% } %>
         <% }) %>
+
+        <% if(!tpl.deckList.length) { %>
+            <div class="alert alert-info" role="alert"><strong>Figyelem!</strong> Még nem lett egyetlen pakli sem létrehozva! :(</div>
+        <% } %>
     </div>
 </div>
 

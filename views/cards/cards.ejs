@@ -17,9 +17,11 @@
     -%>
 
     <div id="cards">
-        <% tpl.error.forEach((item) => { %>
-            <div class="alert alert-danger" role="alert"><%= item %></div>
-        <% }); %>
+        <%- 
+            include('../common/error', {
+                errors: tpl.error
+            })
+        -%>
 
         <button id="newCard" class="btn btn-primary" data-toggle="modal" data-target="#<%= NEW_CARD_MODAL_ID %>">Új Kártya</button>
 
