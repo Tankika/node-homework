@@ -9,11 +9,14 @@ module.exports = () => {
             .find()
             .exec((error, result) => {
                 if(error) {
-                    res.tpl.error.push(error.message);
+                    console.error(error);
+
+                    return res.sendStatus(500);
                 } else {
                     res.tpl.cardList = result;
+                    
+                    return next();
                 }
-                return next();
             });
     };
 

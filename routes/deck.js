@@ -1,5 +1,6 @@
 const renderMW = require("../middleware/generic/render");
 
+const addedCardsFilter = require("../middleware/deck/addedCardsFilter");
 const editDeckInitializer = require("../middleware/deck/editDeckInitializer");
 const editDeckErrorHandler = require("../middleware/deck/editDeckErrorHandler");
 const getDeckMW = require("../middleware/deck/getDeck");
@@ -8,7 +9,6 @@ const updateDeckMW = require("../middleware/deck/updateDeck");
 const deleteDeckMW = require("../middleware/deck/deleteDeck");
 
 const getCardList = require("../middleware/card/getCardList");
-const getCardListByIdMW = require("../middleware/card/getCardListById");
 
 module.exports = (app) => {
 
@@ -23,15 +23,15 @@ module.exports = (app) => {
         renderMW('deck_edit/deck_edit')
     );
 
-    app.get('/deck/:deckId', 
+    app.get('/deck/:deckId',
+        editDeckInitializer(),
         getDeckMW(),
         getCardList(),
-        getCardListByIdMW(),
+        addedCardsFilter(),
         renderMW('deck_edit/deck_edit')
     );
 
     app.post('/deck',
-        getCardListByIdMW(),
         updateDeckMW(),
         editDeckErrorHandler(),
         editDeckInitializer(),
@@ -39,9 +39,8 @@ module.exports = (app) => {
         renderMW('deck_edit/deck_edit')
     );
 
-    app.put('/deck/:deckId',
+    app.post('/deck/:deckId',
         getDeckMW(),
-        getCardListByIdMW(),
         updateDeckMW(),
         editDeckErrorHandler(),
         editDeckInitializer(),
@@ -51,7 +50,6 @@ module.exports = (app) => {
 
     app.delete('/deck/:deckId', 
         getDeckMW(),
-        getCardListByIdMW(),
         deleteDeckMW(),
         (req, res, next) => {
             res.sendStatus(200);

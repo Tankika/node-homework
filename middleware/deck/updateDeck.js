@@ -10,11 +10,19 @@ const async = require('async'),
 module.exports = () => {
 
     return (req, res, next) => {
+        if(res.tpl.error.length) {
+            next();
+        }
+
         async.waterfall([
             (callback) => {
-                DeckModel.findOne({
-                    name: req.body.name
-                }, callback);
+                if(res.tpl.deck) {
+                    callback(null, null);
+                } else {
+                    DeckModel.findOne({
+                        name: req.body.name
+                    }, callback);
+                }
             },
             (result, callback) => {
                 if(result) {
@@ -24,12 +32,14 @@ module.exports = () => {
                 }
             },
             (callback) => {
-                var deck = new DeckModel();
+                var deck = res.tpl.deck ? res.tpl.deck : new DeckModel();
+
                 deck.name = req.body.name;
                 deck.class = req.body.class;
                 deck.dateOfModification = Date.now();
+                deck.cards.splice(0);
 
-                if("added_cards" in req.body) {
+                if(req.body.added_cards) {
                     const addedCards = Array.isArray(req.body.added_cards) ? req.body.added_cards : [req.body.added_cards];
                     addedCards.forEach(cardId => {
                         deck.cards.push(mongoose.Types.ObjectId(cardId));

@@ -1,4 +1,5 @@
 const async = require('async'),
+    _ = require('lodash'),
     CardModel = require('../../model/card');
 /**
  * Ellenőrzi létezik-e már a megadott néven kártya
@@ -32,7 +33,13 @@ module.exports = () => {
             }
         ], (error, result) => {
             if(error) {
-                res.tpl.error.push(error.message);
+                if(error.errors) {
+                    Object.keys(error.errors).forEach(function(key) {
+                        res.tpl.error.push(error.errors[key].message);
+                    });
+                } else if(error.message) {
+                    res.tpl.error.push(error.message);
+                }
             }
 
             return next();
