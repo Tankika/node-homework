@@ -1,4 +1,4 @@
-const async = require('async'),
+var async = require('async'),
     _ = require('lodash'),
     CardModel = require('../../model/card');
 /**

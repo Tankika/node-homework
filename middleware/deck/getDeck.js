@@ -1,4 +1,4 @@
-const DeckModel = require('../../model/deck');
+var DeckModel = require('../../model/deck');
 /**
  * A megadott paraméter id alapján megpróbálja megkeresni a paklit. Ha megtalálja beleteszi a válaszba, ha nem, jelzi a hibát.
  * @param deckId
